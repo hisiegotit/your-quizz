@@ -14,6 +14,5 @@
 ## Accounts
 ### Admin
 
-> [!NOTE]
 > Email: admin@example.com
 > Password: 123123123

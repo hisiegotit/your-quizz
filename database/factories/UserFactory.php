@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use Faker\Provider\vi_VN\PhoneNumber;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -22,6 +23,11 @@ class UserFactory extends Factory
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'visible_password' => 'password', // password
+            'occupation' => fake()->jobTitle(),
+            'address' => fake()->address(),
+            'phone' => fake()->phoneNumber(),
+            'is_admin' => 0,
             'remember_token' => Str::random(10),
         ];
     }

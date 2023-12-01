@@ -13,7 +13,7 @@ class ExamController extends Controller
 {
     public function index()
     {
-        $quizzes = Quiz::get();
+        $quizzes = Quiz::latest()->paginate(10);
         return view('backend.exam.index', compact('quizzes'));
     }
 
@@ -27,6 +27,12 @@ class ExamController extends Controller
     {
         $quiz = (new Quiz)->assignExam($request->all());
         return redirect()->back()->with('message', 'Exam assigned to user successfully!');
+    }
+
+    public function assignAll(Request $request)
+    {
+        $quiz = (new Quiz)->assignExamAll($request->all());
+        return redirect()->back()->with('message', 'Exam assigned to all users successfully!');
     }
 
     public function destroy(Request $request)

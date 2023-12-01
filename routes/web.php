@@ -23,7 +23,7 @@ Route::get('/', function () {
     return view('admin.index');
 });
 
-Route::middleware('role')->group(function(){
+Route::middleware('role')->group(function () {
     Route::resources([
         'quiz' => QuizController::class,
         'question' => QuestionController::class,
@@ -32,12 +32,13 @@ Route::middleware('role')->group(function(){
 
     Route::post('/exam/unassign', [ExamController::class, 'destroy'])->name('exam.destroy');
     Route::post('/exam/assign', [ExamController::class, 'assign'])->name('exam.assign');
+    Route::post('/exam/assign-all', [ExamController::class, 'assignAll'])->name('exam.assignAll');
     Route::get('/exam/assign', [ExamController::class, 'create'])->name('exam.create');
     Route::get('/result', [ExamController::class, 'userResult'])->name('result.user');
     Route::get('/result/{quiz}/user/{user}', [ExamController::class, 'viewUserResult'])->name('result.view');
 });
 
-Route::middleware('auth')->group(function(){
+Route::middleware('auth')->group(function () {
     Route::get('/exam', [ExamController::class, 'index'])->name('exam.index');
 
     Route::get('/home', [HomeController::class, 'index'])->name('home');
@@ -47,9 +48,7 @@ Route::middleware('auth')->group(function(){
     Route::post('/result/store', [ExamController::class, 'result']);
 
     Route::get('/result/{user}/{quiz}', [ExamController::class, 'viewResult']);
-
-
 });
 
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

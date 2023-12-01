@@ -11,21 +11,32 @@ class Quiz extends Model
 
     protected $guarded = [''];
 
-    public function questions(){
+    public function questions()
+    {
         return $this->hasMany(Question::class, 'quiz_id', 'id');
     }
 
-    public function users(){
+    public function users()
+    {
         return $this->belongsToMany(User::class, 'quiz_user');
     }
 
-    public function assignExam($data){
+    public function assignExam($data)
+    {
         $quiz = Quiz::find($data['quiz_id']);
         $userID = $data['user_id'];
         return $quiz->users()->syncWithoutDetaching($userID);
     }
 
-    public function hasQuizAttempted(){
+    public function assignExamAll($data)
+    {
+        $quiz = Quiz::find($data['quiz_id']);
+        $users = User::where('is_admin', 0)->pluck('id')->toArray();
+        return $quiz->users()->syncWithoutDetaching($users);
+    }
+
+    public function hasQuizAttempted()
+    {
         $attemptQuiz = [];
         $authUser = auth()->user()->id;
         $users = Result::where('user_id', $authUser)->get();

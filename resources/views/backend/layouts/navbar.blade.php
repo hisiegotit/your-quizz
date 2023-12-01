@@ -37,10 +37,16 @@
                     </form>
                 </li>
                 @else
-                <li class="nav-item d-flex align-items-center">
+                <li class="nav-item d-flex align-items-center pe-2">
                     <a href="{{route('login')}}" class="nav-link text-body font-weight-bold px-0">
                         <i class="fa fa-user me-sm-1"></i>
                         <span class="d-sm-inline d-none">Login</span>
+                    </a>
+                </li>
+                <li class="nav-item d-flex align-items-center">
+                    <a href="{{route('register')}}" class="nav-link text-body font-weight-bold px-0">
+                        <i class="fa fa-key me-sm-1"></i>
+                        <span class="d-sm-inline d-none">Register</span>
                     </a>
                 </li>
                 @endif

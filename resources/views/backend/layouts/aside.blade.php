@@ -5,8 +5,8 @@
                 aria-hidden="true" id="iconSidenav"></i>
             <a class="navbar-brand m-0" href="{{url('/')}}"
                 target="_blank">
-                <img src="{{ asset('img/logo-ct-dark.png') }}" class="navbar-brand-img h-100" alt="main_logo">
-                <span class="ms-1 font-weight-bold">Soft UI Dashboard</span>
+                <img src="{{ asset('img/logo.svg') }}" class="navbar-brand-img w-200" alt="main_logo">
+                {{-- <span class="ms-1 font-weight-bold">Soft UI Dashboard</span> --}}
             </a>
     </div>
     @if (Auth::check() && Auth::user()->is_admin == 1)

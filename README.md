@@ -10,3 +10,10 @@
 8. `npm run dev`
 9. `php artisan serve`
 10. Visit `localhost:8000` in your browser
+
+## Accounts
+### Admin
+
+> [!NOTE]
+> Email: admin@example.com
+> Password: 123123123

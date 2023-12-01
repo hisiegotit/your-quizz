@@ -11,9 +11,14 @@
 9. `php artisan serve`
 10. Visit `localhost:8000` in your browser
 
-## Accounts
+## Accounts (run `php artisan migrate --seed`)
 ### Admin
 
 > Email: admin@example.com
+> 
+> Password: 123123123
+
+### User
+> Email: user@example.com
 > 
 > Password: 123123123
